@@ -40,7 +40,7 @@
     NSString *lw = [NSString stringWithFormat:@"%.2f", [StaticClass getLineWidth]];
     
     NSString *fontType = [NSString stringWithFormat:@"%ld", [StaticClass getFontType]];
-//    NSString *fontSize = [NSString stringWithFormat:@"%.2f", [StaticClass getFontSize]];
+    //    NSString *fontSize = [NSString stringWithFormat:@"%.2f", [StaticClass getFontSize]];
     NSString *fontname = [StaticClass getFontName];
     CGFloat s_width = [UIScreen mainScreen].bounds.size.width;
     CGFloat s_height = [UIScreen mainScreen].bounds.size.height;
@@ -57,7 +57,7 @@
     CGFloat g = [array[1] floatValue];
     CGFloat b = [array[2] floatValue];
     CGFloat f = [array[3] floatValue];
-//    JMLog(@"%f, %f, %f", r, g, b);
+    //    JMLog(@"%f, %f, %f", r, g, b);
     return [UIColor colorWithRed:r green:g blue:b alpha:f];;
 }
 
@@ -95,24 +95,19 @@
 {
     NSString *path;
     if (dir == nil) {
-        
         NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         path = [cachesDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json", [JMHelper timerString]]];
     }else{
-    
         path = [dir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json", [JMHelper timerString]]];;
     }
     
     NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     if ([jsonData length] > 0 && error == nil){
-        
         // 写入本地文件
         if ([jsonData writeToFile:path atomically:YES]) {
-        
             return path;
         }else{
-        
             return path;
         }
     }else{
@@ -131,20 +126,16 @@
     NSError *error = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     if ([jsonData length] > 0 && error == nil){
-        
         // 写入本地文件
         if ([jsonData writeToFile:path atomically:YES]) {
-            
             return path;
         }else{
-            
             return path;
         }
     }else{
         return nil;
     }
 }
-
 
 /******************************************************************************/
 + (NSMutableDictionary *)transformData:(NSMutableArray *)data
@@ -223,6 +214,11 @@
     return [objDateformat stringFromDate: date];
 }
 
++ (int)getRandom:(int)from to:(int)to
+{
+    return (int)(from + (arc4random() % (to-from + 1)));
+}
+
 // 坐标点转化
 + (CGPoint)tranPoint:(CGPoint)oldPoint oldSize:(CGSize)oldSize
 {
@@ -281,10 +277,5 @@
     }
     
     return data;
-}
-
-+ (int)getRandom:(int)from to:(int)to
-{
-    return (int)(from + (arc4random() % (to-from + 1)));
 }
 @end

@@ -9,7 +9,6 @@
 //#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @interface JMHelper : NSObject
-
 // 1> 字符串转字典
 + (NSDictionary *)parseJSONStringToNSDictionary:(NSString *)JSONString;
 

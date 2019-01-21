@@ -31,16 +31,12 @@
     NSArray *array = [manger contentsOfDirectoryAtPath:dir error:&error];
     NSMutableArray *pngs = [NSMutableArray array];
     if (!error) {
-        
         for (NSString *name in array) {
-            
             if ([name hasSuffix:suffix]) {
-                
                 [pngs addObject:[dir stringByAppendingPathComponent:name]];
             }
         }
     }
-    
     return pngs;
 }
 
@@ -51,17 +47,12 @@
     
     // 文件夹路径
     NSString *pathDir = fileName;
-    
     BOOL isDir               = NO;
     BOOL existed               = [fileManager fileExistsAtPath:pathDir isDirectory:&isDir];
-    
     // 文件夹不存在直接返回
     if (!existed){
-        
         return NO;
-        
     }else{ // 文件夹存在
-        
         return [fileManager removeItemAtPath:fileName error:nil];
     }
 }
@@ -70,13 +61,9 @@
 {
     NSError *error;
     NSArray *array = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:&error];
-    
     for (NSString *dir in array) {
-        
         NSArray *jsons = [JMFileManger getFileFromDir:[folderPath stringByAppendingPathComponent:dir] bySuffix:@"gif"];
-        
         if (jsons.count == 0) {
-            
             [[NSFileManager defaultManager] removeItemAtPath:[folderPath stringByAppendingPathComponent:dir] error:nil];
         }
     }
@@ -131,4 +118,5 @@
 {
     return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 }
+
 @end
