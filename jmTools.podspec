@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "jmTools"
+  spec.name         = "mastordBoardTools"
   spec.version      = "1.0.0"
   spec.summary      = "Simple tools use to masterboard"
 
@@ -44,7 +44,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "ZhaoJunMing" => "tonyzhao60@gmail.com" }
+  spec.author             = { "JMZhao" => "tonyzhao60@gmail.com" }
   # Or just: spec.author    = "ZhaoJunMing"
   # spec.authors            = { "ZhaoJunMing" => "simplismvip@163.com" }
   spec.social_media_url   = "http://www.restcy.com"
@@ -82,7 +82,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "jmTools/*.{h,m}"
+  spec.source_files  = "mastordBoardTools/*.{h,m}"
 
   # spec.public_header_files = "Classes/**/*.h"
 
