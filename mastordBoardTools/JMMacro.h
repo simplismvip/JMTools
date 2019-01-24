@@ -1,0 +1,40 @@
+//
+//  JMMacro.h
+//  MasterBoard
+//
+//  Created by 赵俊明 on 2019/1/17.
+//  Copyright © 2019 赵俊明. All rights reserved.
+//
+
+#ifndef JMMacro_h
+#define JMMacro_h
+
+#define Google_Bander @"ca-app-pub-5649482177498836/5532551956"
+#define banner_one @"ca-app-pub-5649482177498836/3376198842"
+#define banner_two @"ca-app-pub-5649482177498836/5806921066"
+#define banner_thr @"ca-app-pub-5649482177498836/8281875316"
+
+#define denyNil(value) (value)?(value):@"null objects"
+#define JMSelf(weakSelf) __weak __typeof(&*self)weakSelf = self;
+#define JMTabViewBaseColor JMColor(245.0, 245.0, 245.0)
+#define JMBaseColor JMColor(41, 41, 41)
+
+#define JMColor(r, g, b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0]
+#define JMColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+#define JMRandomColor JMColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+// 颜色
+#define JMCachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define JMDocumentsPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0]
+
+#define kFiles [JMDocumentsPath stringByAppendingPathComponent:@"files"]
+#define kFolders [JMDocumentsPath stringByAppendingPathComponent:@"folders"]
+#define kThumb [JMDocumentsPath stringByAppendingPathComponent:@"thumb"]
+#define upload_path @"/var/www/html/source/upload/"
+#define upload_temp @"/var/www/html/source/temps/"
+
+//Frame
+#define kW [[UIScreen mainScreen] bounds].size.width
+#define kH [[UIScreen mainScreen] bounds].size.height
+
+#endif /* JMMacro_h */
