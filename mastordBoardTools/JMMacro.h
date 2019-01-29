@@ -14,6 +14,7 @@
 #define banner_two @"ca-app-pub-5649482177498836/5806921066"
 #define banner_thr @"ca-app-pub-5649482177498836/8281875316"
 
+#define kRAND(from,to) (int)((from) + (arc4random() % ((to)-(from) + 1)))
 #define denyNil(value) (value)?(value):@"null objects"
 #define JMSelf(weakSelf) __weak __typeof(&*self)weakSelf = self;
 #define JMTabViewBaseColor JMColor(245.0, 245.0, 245.0)
