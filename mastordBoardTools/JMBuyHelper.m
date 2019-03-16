@@ -9,11 +9,8 @@
 #import "JMBuyHelper.h"
 #import "JMUserDefault.h"
 #define kVIP @"superUser"
-
 @interface JMBuyHelper()
-
 @end
-
 @implementation JMBuyHelper
 
 + (BOOL)setVIP

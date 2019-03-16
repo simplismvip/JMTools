@@ -29,6 +29,31 @@ static NSString * const upload_url = @"http://www.restcy.com/source/api/new_uplo
     [task resume];
 }
 
++(void)POST:(NSString *)url params:(NSDictionary *)params data:(dataBlock)rdata fail:(downloadFail)fail
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject) {
+            id getData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+            if (rdata) {rdata(getData);}
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (fail) {fail(error);}
+    }];
+}
+
++(void)GET:(NSString *)url params:(NSDictionary *)params data:(dataBlock)rdata fail:(downloadFail)fail
+{
+    [[AFHTTPSessionManager manager] GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        id getData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        if (rdata) {rdata(getData);}
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (fail) {fail(error);}
+    }];
+}
+
 // 上传头像
 + (void)uploadImageData:(NSData *)data imageName:(NSString *)name savePath:(NSString *_Nullable)savePath progress:(uploadBlock)progress status:(uploadStatus)status
 {
@@ -134,19 +159,13 @@ static NSString * const upload_url = @"http://www.restcy.com/source/api/new_uplo
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     session.responseSerializer = [AFHTTPResponseSerializer serializer];
     [session GET:urlString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
         CGFloat size = (CGFloat)downloadProgress.totalUnitCount/1048576.f;
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             if (progress) {progress(downloadProgress.fractionCompleted, size);}
         });
-        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
         if (success) {success([NSMutableArray arrayWithObjects:responseObject, nil]);}
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
         if (fail) {fail(error);}
     }];
     

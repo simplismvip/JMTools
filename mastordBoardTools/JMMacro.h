@@ -16,6 +16,10 @@
 
 #define kRAND(from,to) (int)((from) + (arc4random() % ((to)-(from) + 1)))
 #define denyNil(value) (value)?(value):@"null objects"
+#define kRand (CGFloat)(arc4random() % 6)
+#define kImage(name) [UIImage imageNamed:(name)]
+#define kUrl(url) [NSURL URLWithString:(url)]
+
 #define JMSelf(weakSelf) __weak __typeof(&*self)weakSelf = self;
 #define JMTabViewBaseColor JMColor(245.0, 245.0, 245.0)
 #define JMBaseColor JMColor(41, 41, 41)
@@ -37,5 +41,32 @@
 //Frame
 #define kW [[UIScreen mainScreen] bounds].size.width
 #define kH [[UIScreen mainScreen] bounds].size.height
+
+// 字体
+#define SentyZHAO @"SentyZHAO Âµ"
+#define FZLBJW @"FZLBJW--GB1-0"
+#define Font_ruifs @"font_ruifs"
+#define Font_ruinb @"font_ruinb"
+#define Font_ruikt @"font_ruikt"
+
+#define Font_Size 20
+#define DefaultFontSize 15
+
+#define Sqlpath [SqliteFolder stringByAppendingPathComponent:@"PoemData.sqlite"]
+// [[NSBundle mainBundle] pathForResource:@"PoemData" ofType:@"sqlite"]
+
+#define JMDocumentsPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0]
+#define AudioFolder [JMDocumentsPath stringByAppendingPathComponent:@"Audio"]
+#define FontFolder [JMDocumentsPath stringByAppendingPathComponent:@"Fonts"]
+#define SqliteFolder [JMDocumentsPath stringByAppendingPathComponent:@"SQLite"]
+#define isFontExist(bookName) [[NSFileManager defaultManager] fileExistsAtPath:[FontFolder stringByAppendingPathComponent:(bookName)]]
+#define absUrl(urlString) [(urlString) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+
+// 颜色
+#define JMCellBackground JMColor(239, 239, 239)
+#define JMCellContent JMColor(254, 254, 254)
+#define JMCellText JMColor(241, 241, 241)
+#define JMTabViewBaseColor JMColor(205.0, 205.0, 205.0)
+#define JMBaseColor JMColor(41, 41, 41)
 
 #endif /* JMMacro_h */

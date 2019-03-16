@@ -67,4 +67,6 @@ typedef void(^progressBlock)(CGFloat progress, CGFloat sumSize);
  *  返回值为空
  */
 + (void)loadFileWithUrl:(NSString *_Nullable)urlString progress:(progressBlock _Nullable)progress success:(downloadSuccess _Nullable)success fail:(downloadFail _Nullable)fail;
++(void)POST:(NSString *)url params:(NSDictionary *)params data:(dataBlock)rdata fail:(downloadFail)fail;
++(void)GET:(NSString *)url params:(NSDictionary *)params data:(dataBlock)rdata fail:(downloadFail)fail;
 @end

@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "mastordBoardTools"
-  spec.version      = "1.0.5"
+  spec.version      = "1.0.6"
   spec.summary      = "Simple tools use to masterboard"
 
   spec.homepage     = "https://github.com/simplismvip/JMTools"
@@ -124,6 +124,5 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   spec.dependency "AFNetworking"
-  spec.dependency "FMDB"
 
 end
