@@ -49,4 +49,8 @@
  *  是否为emoji字符
  */
 - (BOOL)isEmoji;
+/**
+ *  中文转拼音
+ */
++ (NSString *)transformChinese:(NSString *)chinese;
 @end

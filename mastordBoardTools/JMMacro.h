@@ -18,8 +18,9 @@
 #define denyNil(value) (value)?(value):@"null objects"
 #define kRand (CGFloat)(arc4random() % 6)
 #define kImage(name) [UIImage imageNamed:(name)]
-#define kUrl(url) [NSURL URLWithString:(url)]
-
+#define kUrl(url) [NSURL URLWithString:[(url) stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]
+//#define kUrl(url) [NSURL URLWithString:[(url) stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]]
+//NSString *namr = [dic[@"name"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
 #define JMSelf(weakSelf) __weak __typeof(&*self)weakSelf = self;
 #define JMTabViewBaseColor JMColor(245.0, 245.0, 245.0)
 #define JMBaseColor JMColor(41, 41, 41)
@@ -35,7 +36,7 @@
 #define kFiles [JMDocumentsPath stringByAppendingPathComponent:@"files"]
 #define kFolders [JMDocumentsPath stringByAppendingPathComponent:@"folders"]
 #define kThumb [JMDocumentsPath stringByAppendingPathComponent:@"thumb"]
-#define upload_path @"/var/www/html/source/upload/"
+#define upload_path @"/var/www/html/source/wallpaper_upload/"
 #define upload_temp @"/var/www/html/source/temps/"
 
 //Frame
