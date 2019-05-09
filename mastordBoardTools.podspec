@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "mastordBoardTools"
-  spec.version      = "1.0.6"
+  spec.version      = "1.0.8"
   spec.summary      = "Simple tools use to masterboard"
 
   spec.homepage     = "https://github.com/simplismvip/JMTools"
