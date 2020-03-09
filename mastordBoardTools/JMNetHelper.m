@@ -9,10 +9,8 @@
 #import "JMNetHelper.h"
 #import "AFNetworking.h"
 #import "JMHelper.h"
-
 @implementation JMNetHelper
-static NSString * const upload_url = @"http://www.restcy.com/source/api/wallNew_upload.php";
-
+static NSString * const upload_url = @"http://www.restcy.com/source/api/masterboard_upload.php";
 + (void)readData:(NSString *)urlStr data:(dataBlock)rdata
 {
     urlStr = [urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
@@ -68,8 +66,7 @@ static NSString * const upload_url = @"http://www.restcy.com/source/api/wallNew_
     // 设置请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:savePath forKey:@"path"];
-    
-    [params setValue:savePath forKey:@"uname"];
+    [params setValue:@"MasterBoard" forKey:@"uname"];
     [manager POST:upload_url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
         // 设置上传图片的名字
@@ -83,7 +80,7 @@ static NSString * const upload_url = @"http://www.restcy.com/source/api/wallNew_
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (status) {
-            status(1,responseObject,[NSString stringWithFormat:@"http://www.restcy.com/source/%@/%@", savePath.lastPathComponent,responseObject[@"fileName"]]);
+            status(1,responseObject,[NSString stringWithFormat:@"http://www.restcy.com/source/%@/MasterBoard/%@", savePath.lastPathComponent,responseObject[@"fileName"]]);
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -199,6 +196,11 @@ static NSString * const upload_url = @"http://www.restcy.com/source/api/wallNew_
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (status) {status(0,error,@"error");}
     }];
+}
+
++(void)loadgdata
+{
+    NSLog(@"获得网络管理者");
 }
 
 

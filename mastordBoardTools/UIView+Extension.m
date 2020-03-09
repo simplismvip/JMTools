@@ -153,4 +153,27 @@
     self.frame = newframe;
 }
 
+- (void)setMaxX:(CGFloat)maxX
+{
+    CGRect tempFrame = self.frame;
+    tempFrame.origin.x = maxX - self.width;
+    self.frame = tempFrame;
+}
+
+- (CGFloat)maxX
+{
+    return self.x+self.width;
+}
+
+- (void)setMaxY:(CGFloat)maxY
+{
+    CGRect tempFrame = self.frame;
+    tempFrame.origin.y = maxY - self.height;
+    self.frame = tempFrame;
+}
+
+- (CGFloat)maxY
+{
+    return self.y+self.height;
+}
 @end

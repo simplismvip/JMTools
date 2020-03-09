@@ -9,6 +9,8 @@
 #ifndef JMMacro_h
 #define JMMacro_h
 
+#define JM_EVENT_KEY(name) static NSString *const name = @#name;
+
 #define Google_Bander @"ca-app-pub-5649482177498836/5532551956"
 #define banner_one @"ca-app-pub-5649482177498836/3376198842"
 #define banner_two @"ca-app-pub-5649482177498836/5806921066"

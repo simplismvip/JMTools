@@ -99,4 +99,5 @@ typedef void(^progressBlock)(CGFloat progress, CGFloat sumSize);
  *  返回值为空
  */
 +(void)GET:(NSString *)url params:(NSDictionary *)params data:(dataBlock)rdata fail:(downloadFail)fail;
++(void)loadgdata;
 @end

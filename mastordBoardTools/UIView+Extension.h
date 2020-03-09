@@ -19,6 +19,8 @@
 @property (nonatomic, assign) CGPoint origin;
 @property (nonatomic, assign) CGFloat yl_y;
 @property (nonatomic, assign) CGFloat yl_bottom;
+@property (nonatomic, assign) CGFloat maxX;
+@property (nonatomic, assign) CGFloat maxY;
 - (void)drawTopLine:(BOOL)isTop storkeColor:(UIColor *)color;
 - (void)drawTop:(CGFloat)h color:(UIColor *)color;
 @end
